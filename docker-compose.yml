@@ -10,7 +10,7 @@ services:
       - MYSQL_PASSWORD=${DB_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
@@ -24,6 +24,19 @@ services:
     command: bash -c "pip install -r requirements.txt && python extract_data.py"
     depends_on:
       - mysql
+
+  jupyter:
+    build: .
+    container_name: jupyter_container
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./scripts:/scripts
+      - ./data:/data
+      - ./notebooks:/notebooks
+    working_dir: /notebooks
+    depends_on:
+      - python_app
 
 volumes:  
   mysql_data:
