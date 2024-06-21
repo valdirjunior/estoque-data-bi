@@ -9,11 +9,12 @@ WORKDIR /estoque-data-bi
 COPY scripts/requirements.txt .
 
 # Instale as dependências do Python
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install mysql-connector-python
 
 # Copie os scripts e a pasta data para o container
-COPY scripts /estoque-data-bi/scripts
-COPY data /estoque-data-bi/data
+COPY . .
+
+
 
 # Instale o Jupyter Notebook
 RUN pip install notebook

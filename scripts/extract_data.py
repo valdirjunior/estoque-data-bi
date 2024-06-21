@@ -7,8 +7,9 @@ def connect_to_db():
         connection = mysql.connector.connect(
             host='mysql',
             database='trabalho2',
-            user='docker',
-            password='valdas'
+            user='root',
+            password='valdas',
+            port='3307'
         )
         if connection.is_connected():
             print("Conectado ao MySQL")
