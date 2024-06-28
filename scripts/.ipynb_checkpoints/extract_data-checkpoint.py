@@ -44,37 +44,9 @@ if __name__ == "__main__":
         'movimentacoes_itens': """
             SELECT id, movimentacao_id, produto_id, quantidade, preco_custo, preco_venda, criado_em
             FROM movimentacoes_itens;
-        """,
-        'movimentacoes': """
-            SELECT id, funcionario_id, cliente_fornecedor_id, tipo_movimentacao, criado_em 
-            FROM movimentacoes;
-        """,
-        'auditorias': """
-            SELECT id, auditoria, tabela, usuario, criado_em 
-            FROM auditorias;
-        """,
-        'cargos': """
-            SELECT id, descricao, criado_em 
-            FROM cargos;
-        """,
-        'clientes_fornecedores': """
-            SELECT id, razao_social, nome_fantasia, data_nascimento, cnpj_cpf, criado_em, atualizado_em 
-            FROM clientes_fornecedores;
-        """,
-        'funcionarios': """
-            SELECT id, nome, cpf, data_nascimento, data_admissao, data_demissao, cargo_id, salario_base 
-            FROM funcionarios;
-        """,
-        'setores': """
-            SELECT id, setor, responsavel_id, criado_em, atualizado_em 
-            FROM setores;
-        """,
-        'setores_funcionarios': """
-            SELECT id, setor_id, funcionario_id, criado_em 
-            FROM setores_funcionarios;
         """
     }
-    output_dir = '../data/extracted/'
+    output_dir = '/data/extracted/'
     os.makedirs(output_dir, exist_ok=True)
 
     for name, query in queries.items():

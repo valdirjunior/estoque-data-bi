@@ -6,18 +6,18 @@ FROM python:3.11
 WORKDIR /estoque-data-bi
 
 # Copie os arquivos de requisitos
-COPY scripts/requirements.txt .
+# COPY scripts/requirements.txt .
 
 # Instale as dependências do Python
-RUN pip install mysql-connector-python
+RUN pip install mysql-connector-python notebook pandas matplotlib
 
 # Copie os scripts e a pasta data para o container
-COPY . .
+# COPY . .
 
 
 
 # Instale o Jupyter Notebook
-RUN pip install notebook
+# RUN pip install notebook
 
 # Exponha a porta 8888 para o Jupyter Notebook
 EXPOSE 8888
